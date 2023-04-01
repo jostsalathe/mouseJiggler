@@ -89,6 +89,14 @@ bool jiggleEnabled = false;
 uint32_t jigglePathPos = 0;
 int64_t nextJiggle_us;
 
+void setJiggle(bool enabled)
+{
+    jiggleEnabled = enabled;
+    jigglePathPos = 0;
+    nextJiggle_us = esp_timer_get_time();
+    ESP_LOGI(HID_DEMO_TAG, "jiggle %sabled", enabled ? "en" : "dis");
+}
+
 void enterJiggleModeStealth()
 {
     jiggleMode = jiggleModeStealth;
@@ -286,7 +294,7 @@ static void hidd_event_callback(esp_hidd_cb_event_t event, esp_hidd_cb_param_t *
         {
             ESP_LOGI(HID_DEMO_TAG, "ESP_HIDD_EVENT_BLE_LED_REPORT_WRITE_EVT");
             ESP_LOG_BUFFER_HEX(HID_DEMO_TAG, param->led_write.data, param->led_write.length);
-            jiggleEnabled = param->led_write.data[0] & 0x4;
+            setJiggle(param->led_write.data[0] & 0x4);
             break;
         }
         default:
