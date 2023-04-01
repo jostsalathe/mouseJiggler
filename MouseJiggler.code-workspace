@@ -7,7 +7,10 @@
 	"settings": {
 		"files.associations": {
 			"esp_hidd_prf_api.h": "c",
-			"ws2812_control.h": "c"
+			"ws2812_control.h": "c",
+			"math.h": "c",
+			"cmath": "c",
+			"complex": "c"
 		}
 	}
 }

@@ -29,7 +29,7 @@ static const char *TAG = "NeoPixel WS2812 Driver";
 // This is the buffer which the hw peripheral will access while pulsing the output pin
 static rmt_item32_t led_data_buffer[LED_BUFFER_ITEMS];
 
-static void setup_rmt_data_buffer(struct led_state new_state);
+static void setup_rmt_data_buffer(led_state_t new_state);
 
 esp_err_t ws2812_control_init(void)
 {
@@ -51,7 +51,7 @@ esp_err_t ws2812_control_init(void)
   return ESP_OK;
 }
 
-esp_err_t ws2812_write_leds(struct led_state new_state)
+esp_err_t ws2812_write_leds(led_state_t new_state)
 {
   setup_rmt_data_buffer(new_state);
   ESP_RETURN_ON_ERROR(rmt_write_items(LED_RMT_TX_CHANNEL, led_data_buffer, LED_BUFFER_ITEMS, false), TAG, "Failed to write items");
@@ -60,7 +60,7 @@ esp_err_t ws2812_write_leds(struct led_state new_state)
   return ESP_OK;
 }
 
-static void setup_rmt_data_buffer(struct led_state new_state)
+static void setup_rmt_data_buffer(led_state_t new_state)
 {
   for (uint32_t led = 0; led < NUM_LEDS; led++) {
     uint32_t bits_to_send = new_state.leds[led];
