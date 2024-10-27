@@ -14,10 +14,10 @@ The button on GPIO 13 has dual function:
 - Long press toggles through wiggle patterns
 
 The number of the LEDs lit shows the selected pattern:
-0. jiggleModeStealth - 1 LED: quickly jumping from left to right by one pixel (10 steps/second)
-1. jiggleModeCircle - 3 LEDs: quickly draw a circle of 20 pixels in diameter (66,7 steps/second)
-2. jiggleModePathSlow - 5 LEDs: slowly draw a dick (376 steps with 1 step/second)
-3. jiggleModePathFast - 9 LEDs: quickly draw a dick (376 steps with 66,7 steps/second)
+- jiggleModeStealth - 1 LED: quickly jumping from left to right by one pixel (10 steps/second)
+- jiggleModeCircle - 3 LEDs: quickly draw a circle of 20 pixels in diameter (66,7 steps/second)
+- jiggleModePathSlow - 5 LEDs: slowly draw a dick (376 steps with 1 step/second)
+- jiggleModePathFast - 9 LEDs: quickly draw a dick (376 steps with 66,7 steps/second)
 
 Color of the LEDs:
 - Blue: Bluetooth unconnected and advertising connection
